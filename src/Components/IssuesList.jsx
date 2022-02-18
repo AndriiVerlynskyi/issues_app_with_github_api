@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Issue from '../Components/Issue';
 
 import List from '@mui/material/List';
@@ -6,16 +6,8 @@ import ListItem from '@mui/material/ListItem';
 import Grid from '@mui/material/Grid'
 
 const IssuesList = ({ issuesList }) => {
+
   return (
-      // <List>
-      //     {issuesList.map( issue => {
-      //       return(
-      //         <ListItem key={issue.label}>
-      //           <Issue issue={issue}/>
-      //         </ListItem>
-      //       )
-      //     })}
-      // </List>
       <Grid container spacing={3}>
         {issuesList.map( issue => {
             return(

@@ -12,6 +12,7 @@ const issuesTestData = {
   {
     name: 'Title',
     number: 1,
+    created_at: '2019-09-18T17:27:31Z',
     labels: [
       {
         "id": 1248411212,
@@ -27,6 +28,7 @@ const issuesTestData = {
   {
     name: 'Other',
     number: 2,
+    created_at: '2019-09-10T17:27:31Z',
     labels: [
       {
         "id": 1248411217,
@@ -42,6 +44,7 @@ const issuesTestData = {
   {
     name: 'Title',
     number: 3,
+    created_at: '2019-10-20T17:27:31Z',
     labels: [
       {
         "id": 1248411286,
@@ -57,6 +60,7 @@ const issuesTestData = {
   {
     name: 'Title',
     number: 4,
+    created_at: '2019-10-18T17:27:31Z',
     labels: [
       {
         "id": 1248411241,
@@ -111,7 +115,7 @@ const Router = () => {
         {showIssues && 
           <>
             <Route path="/issuesList" element={<IssuesListPage issuesList={issuesData.issuesList}/>}/>
-            <Route path="/singleIssue/:id" element={<SingleIssuePage requestData={requestData}/>}/>
+            <Route path="/issuesList/singleIssue/:id" element={<SingleIssuePage requestData={requestData}/>}/>
           </>
         }
         <Route path="*" element={<NoDataToSearch/>}/> 

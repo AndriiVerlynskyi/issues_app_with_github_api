@@ -12,7 +12,7 @@ const Issue = ({ issue }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/singleIssue/${issue.number}`)
+    navigate(`/issuesList/singleIssue/${issue.number}`)
   }
 
 
