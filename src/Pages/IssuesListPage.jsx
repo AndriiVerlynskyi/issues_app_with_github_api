@@ -1,8 +1,13 @@
-import React from 'react'
+import React from 'react';
+import IssuesList from '../Components/IssuesList';
 
-const IssuesListPage = () => {
+import Box from '@mui/material/Box'
+
+const IssuesListPage = ( props ) => {
   return (
-    <div>IssuesListPage</div>
+    <Box >
+      <IssuesList issuesList={props.issuesList}/>
+    </Box>
   )
 }
 

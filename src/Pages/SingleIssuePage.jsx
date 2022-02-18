@@ -1,8 +1,13 @@
-import React from 'react'
+import React from 'react';
+import SingleIssue from '../Components/SingleIssue';
 
-const SingleIssuePage = () => {
+import Box from '@mui/material/Box'
+
+const SingleIssuePage = ({ issue }) => {
   return (
-    <div>SingleIssuePage</div>
+    <Box sx={{display: 'flex', justifyContent:'center', marginTop:'20px'}}>
+      <SingleIssue issue={issue}/>
+    </Box>
   )
 }
 
