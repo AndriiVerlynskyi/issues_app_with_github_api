@@ -3,10 +3,11 @@ import SingleIssue from '../Components/SingleIssue';
 
 import Box from '@mui/material/Box'
 
-const SingleIssuePage = ({ issue }) => {
+const SingleIssuePage = ({ requestData }) => {
+  console.log(requestData)
   return (
     <Box sx={{display: 'flex', justifyContent:'center', marginTop:'20px'}}>
-      <SingleIssue issue={issue}/>
+      <SingleIssue requestData={requestData}/>
     </Box>
   )
 }

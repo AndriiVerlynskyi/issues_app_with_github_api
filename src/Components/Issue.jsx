@@ -12,7 +12,7 @@ const Issue = ({ issue }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/singleIssue/${issue.label}`)
+    navigate(`/singleIssue/${issue.number}`)
   }
 
 
@@ -28,8 +28,8 @@ const Issue = ({ issue }) => {
           <Typography><b>Asignee:</b> {issue.asignee}</Typography>
         </Box>
         <Box sx={{display: 'flex', justifyContent:'space-between'}}>
-          <Typography><b>id:</b> {issue.label}</Typography>
-          <Typography><b>comments:</b> {issue.numberOfComments}</Typography>
+          <Typography><b>id:</b> {issue.labels[0].id}</Typography>
+          <Typography><b>comments:</b> {issue.comments}</Typography>
         </Box>
       </CardContent>
     </Card>

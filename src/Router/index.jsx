@@ -5,12 +5,20 @@ import IssuesListPage from '../Pages/IssuesListPage'
 import NoDataToSearch from '../Components/general/NoDataToSearch';
 import SingleIssuePage from '../Pages/SingleIssuePage';
 
+//Example of server respond with necessary data for testing
 
 const issuesTestData = {
   issuesList: [
   {
     name: 'Title',
-    label: 1,
+    number: 1,
+    labels: [
+      {
+        "id": 1248411212,
+        "node_id": "MDU6TGFiZWwxMjQ4NDExMjEy",
+        "url": "https://api.github.com/repos/facebook/.github/labels/CLA%20Signed"
+      }
+    ],
     asignee: 'user',
     comments: 10,
     status: 'fulfilled',
@@ -18,7 +26,14 @@ const issuesTestData = {
   },
   {
     name: 'Other',
-    label: 2,
+    number: 2,
+    labels: [
+      {
+        "id": 1248411217,
+        "node_id": "MDU6TGFiZWwxMjQ4NDExMjEy",
+        "url": "https://api.github.com/repos/facebook/.github/labels/CLA%20Signed"
+      }
+    ],
     asignee: 'admin',
     comments: 12,
     status: 'fulfilled',
@@ -26,7 +41,14 @@ const issuesTestData = {
   },
   {
     name: 'Title',
-    label: 3,
+    number: 3,
+    labels: [
+      {
+        "id": 1248411286,
+        "node_id": "MDU6TGFiZWwxMjQ4NDExMjEy",
+        "url": "https://api.github.com/repos/facebook/.github/labels/CLA%20Signed"
+      }
+    ],
     asignee: 'user',
     comments: 10,
     status: 'fulfilled',
@@ -34,7 +56,14 @@ const issuesTestData = {
   },
   {
     name: 'Title',
-    label: 4,
+    number: 4,
+    labels: [
+      {
+        "id": 1248411241,
+        "node_id": "MDU6TGFiZWwxMjQ4NDExMjEy",
+        "url": "https://api.github.com/repos/facebook/.github/labels/CLA%20Signed"
+      }
+    ],
     asignee: 'user',
     comments: 10,
     status: 'fulfilled',
@@ -65,24 +94,26 @@ const Router = () => {
       repos 
     })
   }
-  console.log(requestData)
 
-  // useEffect( async () => {
+  //Create constant for saving link for SingleIssuePage 
+
+  useEffect( async () => {
     // await axios(`https://api.github.com/repos/${requestData.username}/${requestData.repos}/issues`)
-  //   checkShowIssues()
-  // }, [])
+      // .then(resp => setIssuesData(resp.data))
+    checkShowIssues()
+  }, [])
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/meetPage" element={<MeetPage setDataForRequest={setDataForRequest}/>}/>
         <Route exact path="/" element={<Navigate replace to="/meetPage"/>}/>
-        {/* {showIssues && 
-          <> */}
+        {showIssues && 
+          <>
             <Route path="/issuesList" element={<IssuesListPage issuesList={issuesData.issuesList}/>}/>
-            <Route path="/singleIssue/:id" element={<SingleIssuePage/>}/>
-          {/* </>
-        } */}
+            <Route path="/singleIssue/:id" element={<SingleIssuePage requestData={requestData}/>}/>
+          </>
+        }
         <Route path="*" element={<NoDataToSearch/>}/> 
       </Routes>
     </BrowserRouter>
