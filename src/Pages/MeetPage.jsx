@@ -2,9 +2,9 @@ import React from 'react';
 import FindForm from '../Components/FindForm';
 
 
-const MeetPage = () => {
+const MeetPage = ({ setDataForRequest }) => {
   return (
-    <FindForm/>
+    <FindForm setDataForRequest={setDataForRequest}/>
   )
 }
 
