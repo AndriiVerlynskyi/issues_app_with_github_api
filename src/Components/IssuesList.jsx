@@ -8,10 +8,10 @@ import Grid from '@mui/material/Grid'
 const IssuesList = ({ issuesList }) => {
 
   return (
-      <Grid container spacing={3}>
+      <Grid container spacing={3} sx={{marginLeft:'210px'}}>
         {issuesList.map( issue => {
             return(
-              <Grid item lg={3.9} key={issue.number} sx={{margin: '0px 5px'}}>
+              <Grid item lg={3} key={issue.number} sx={{margin: '0px 5px'}}>
                 <Issue issue={issue}/>
               </Grid>
             )

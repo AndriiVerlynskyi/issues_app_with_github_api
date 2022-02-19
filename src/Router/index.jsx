@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import MeetPage from '../Pages/MeetPage';
 import IssuesListPage from '../Pages/IssuesListPage'
@@ -112,12 +111,8 @@ const Router = () => {
       <Routes>
         <Route path="/meetPage" element={<MeetPage setDataForRequest={setDataForRequest}/>}/>
         <Route exact path="/" element={<Navigate replace to="/meetPage"/>}/>
-        {/* {showIssues &&  */}
-          <>
-            <Route path="/issuesList" element={<IssuesListPage requestData={requestData} checkShowIssues={checkShowIssues}/>}/>
-            <Route path="/issuesList/singleIssue/:id" element={<SingleIssuePage requestData={requestData}/>}/>
-          </>
-        {/* } */}
+        <Route path="/issuesList" element={<IssuesListPage requestData={requestData} checkShowIssues={checkShowIssues}/>}/>
+        <Route path="/issuesList/singleIssue/:id" element={<SingleIssuePage requestData={requestData}/>}/>
         <Route path="/noRequest" element={<NoDataToSearch/>}/>
         <Route path="*" element={<Navigate replace to="/noRequest"/>}/> 
       </Routes>

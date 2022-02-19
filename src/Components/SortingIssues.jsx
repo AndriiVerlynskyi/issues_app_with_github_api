@@ -7,32 +7,15 @@ import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
 
 
-const SortingIssues = ({ issuesList, setSortedIssues }) => {
-
-    const [sortedIssuesList, setSortedIssuesList] = useState([])
+const SortingIssues = ({ setSortedIssues }) => {
 
     const [sortBy, setSortBy] = useState('newest');
 
-    //function for sorting by date
 
-    const sortByDate = () => {
-        setSortedIssuesList(
-            issuesList.slice().sort( (a, b) => {
-                a = {...a, created_at: new Date(a.created_at.split('', 10).join(''))}
-                b = {...b, created_at: new Date(b.created_at.split('', 10).join(''))}
-                if(sortBy === 'newest'){
-                    return b.created_at - a.created_at
-                } else {
-                    return a.created_at - b.created_at
-                }
-            })
-        )
-    }
-
-    // On change of the sortBy constant I'm setting the sorted array after function invoking 
+    // On change of the sortBy constant I'm setting the sorted array to a parent component 
+    //throughout callback
     useEffect( () => {
-        sortByDate();
-        setSortedIssues(sortedIssuesList)
+        setSortedIssues(sortBy)
     }, [sortBy])
 
     const handleChange = (event) => {

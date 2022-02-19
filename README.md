@@ -1,3 +1,6 @@
+After installing packages from dependencies, you could easily start project with the standart
+$npm run start
+
 API Requests
 
 Defaultly only /meetPage route is avaliable, but when you are trying to access to the route, that doesn't exist,
@@ -13,6 +16,8 @@ axios('https://api.github.com/repos/{GITHUB_USER}/{GITHUB_REPO}/issues/{issueID}
 I've decided to don't use Redux for such a small app, so that's why I had problems 
 with state management among components
 
+
+I spent nearly 18-20 hours
 
 # Getting Started with Create React App
 
