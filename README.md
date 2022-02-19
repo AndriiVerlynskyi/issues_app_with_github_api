@@ -1,3 +1,19 @@
+API Requests
+
+Defaultly only /meetPage route is avaliable, but when you are trying to access to the route, that doesn't exist,
+you will get the warning page, which allows you to access the meet page
+
+
+When the data for request is set, I'm making this request for issuesList page: 
+axios('https://api.github.com/repos/{GITHUB_USER}/{GITHUB_REPO}/issues');
+and for the singleIssue page I make this request: 
+axios('https://api.github.com/repos/{GITHUB_USER}/{GITHUB_REPO}/issues/{issueID}');
+
+
+I've decided to don't use Redux for such a small app, so that's why I had problems 
+with state management among components
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

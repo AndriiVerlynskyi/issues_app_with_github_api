@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -6,9 +7,9 @@ import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
 
 
-const SortingIssues = ({ issuesList, setSortedIssues}) => {
+const SortingIssues = ({ issuesList, setSortedIssues }) => {
 
-    const [sortedIssuesList, setSortedIssuesList] = useState(issuesList)
+    const [sortedIssuesList, setSortedIssuesList] = useState([])
 
     const [sortBy, setSortBy] = useState('newest');
 
@@ -16,7 +17,7 @@ const SortingIssues = ({ issuesList, setSortedIssues}) => {
 
     const sortByDate = () => {
         setSortedIssuesList(
-            sortedIssuesList.slice().sort( (a, b) => {
+            issuesList.slice().sort( (a, b) => {
                 a = {...a, created_at: new Date(a.created_at.split('', 10).join(''))}
                 b = {...b, created_at: new Date(b.created_at.split('', 10).join(''))}
                 if(sortBy === 'newest'){
@@ -37,6 +38,7 @@ const SortingIssues = ({ issuesList, setSortedIssues}) => {
     const handleChange = (event) => {
         setSortBy(event.target.value);
     };
+
     
   return (
     <Box sx={{display: 'flex', justifyContent:'flex-end', marginRight: '60px'}}>

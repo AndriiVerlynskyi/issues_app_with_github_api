@@ -15,20 +15,23 @@ const Issue = ({ issue }) => {
     navigate(`/issuesList/singleIssue/${issue.number}`)
   }
 
-
   return (
-    <Card sx={{minWidth:'350px'}} onClick={handleClick}>
+    <Card sx={{minWidth:'350px', height:'inherit'}} onClick={handleClick}>
       <CardHeader 
-        title={<Typography variant='h4' sx={{textAlign:'center'}}>
-          { issue.name }
+        title={<Typography variant='h6' sx={{textAlign:'center'}}>
+          { issue.title }
         </Typography>}
       />
       <CardContent>
         <Box sx={{marginBottom:'10px'}}>
-          <Typography><b>Asignee:</b> {issue.asignee}</Typography>
+          <Typography><b>Assignee:</b> {issue.assignee}</Typography>
         </Box>
         <Box sx={{display: 'flex', justifyContent:'space-between'}}>
-          <Typography><b>id:</b> {issue.labels[0].id}</Typography>
+          {!!issue.labels[0] && 
+            <Typography>
+              <b> label id:</b> {issue.labels[0].id} 
+            </Typography>
+          } 
           <Typography><b>comments:</b> {issue.comments}</Typography>
         </Box>
       </CardContent>
